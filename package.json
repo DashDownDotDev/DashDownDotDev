@@ -1,18 +1,22 @@
 {
-  "name": "dashdowndotdev",
-  "private": true,
-  "type": "module",
-  "scripts": {
-    "dev": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "astro": "^5.16.12"
-  },
-  "engines": {
-    "node": ">=25",
-    "pnpm": ">=10"
-  }
+	"name": "dashdowndotdev",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "astro dev",
+		"check": "astro check",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"dependencies": {
+		"@astrojs/check": "^0.9.6",
+		"astro": "^5.16.12",
+		"prettier": "^3.8.1",
+		"typescript": "^5.9.3"
+	},
+	"engines": {
+		"node": ">=25",
+		"pnpm": ">=10"
+	}
 }
