@@ -8,13 +8,12 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"astro": "astro",
+		"sync": "astro sync",
 		"lint": "eslint",
-		"format": "npm run format:core:fix && npm run format:data",
-		"format:core": "npx prettier \"**/*.{js,jsx,ts,tsx,mjs,css}\"",
-		"format:core:check": "npm run format:core -- --check",
-		"format:core:fix": "npm run format:core -- --write",
-		"format:content": "npx prettier --write \"**/*.{md,mdx,astro}\"",
-		"format:data": "npx prettier --write \"**/*.{json,yaml,yml}\""
+		"lint:fix": "eslint --fix",
+		"format": "pnpm run format:core --check",
+		"format:core": "prettier \"**/*.{js,jsx,ts,tsx,mjs,css,md,mdx,astro,json,yaml,yml}\"",
+		"format:fix": "pnpm run format:core --write"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.6",
