@@ -3,6 +3,7 @@ import pluginTypeScript from "typescript-eslint";
 import pluginReact from "eslint-plugin-react";
 import pluginAstro from "eslint-plugin-astro";
 import pluginReactA11y from "eslint-plugin-jsx-a11y";
+import eslintConfigPrettier from "eslint-config-prettier/flat";
 
 import globals from "globals";
 
@@ -44,4 +45,5 @@ export default [
 			],
 		},
 	},
+	eslintConfigPrettier,
 ];
