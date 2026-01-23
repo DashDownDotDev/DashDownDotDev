@@ -2,6 +2,9 @@
 import Welcome from "../components/Welcome.astro";
 import Layout from "../layouts/Layout.astro";
 import TestCounter from "../components/TestCounter.tsx";
+import { getCollection } from "astro:content";
+
+const posts = await getCollection("musings");
 ---
 
 // Welcome to Astro! Wondering what to do next? Check out the Astro
@@ -14,6 +17,18 @@ directories, and start fresh. ---
 
 	<!-- hydrate on load -->
 	<TestCounter client:load />
+
+	<div>
+		<h2>Posts from MDX:</h2>
+		{
+			posts.map((post) => (
+				<div>
+					<h3>{post.data.title}</h3>
+					<p>{post.data.description}</p>
+				</div>
+			))
+		}
+	</div>
 	<div
 		class="flex min-h-screen items-center justify-center bg-zinc-950 text-zinc-100"
 	>
