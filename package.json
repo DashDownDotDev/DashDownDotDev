@@ -17,7 +17,10 @@
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.6",
+		"@astrojs/react": "^4.4.2",
 		"@eslint/js": "^9.39.2",
+		"@types/react": "^19.2.9",
+		"@types/react-dom": "^19.2.3",
 		"@typescript-eslint/parser": "^8.53.1",
 		"astro": "^5.16.12",
 		"eslint": "^9.39.2",
@@ -29,6 +32,8 @@
 		"prettier": "^3.8.1",
 		"prettier-plugin-astro": "^0.14.1",
 		"prettier-plugin-tailwindcss": "^0.7.2",
+		"react": "^19.2.3",
+		"react-dom": "^19.2.3",
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.53.1"
 	},
