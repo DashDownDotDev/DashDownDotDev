@@ -1,28 +1,42 @@
 ---
 import "../styles/global.css";
+import Backdrop from "~/components/Backdrop";
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width initial-scale=1" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>DashDown.dev</title>
 	</head>
 	<body>
-		<main>
+		<Backdrop client:load />
+		<header>
+			<nav aria-label="Primary">
+				<ul>
+					<li><a href="/">home</a></li>
+					<li><a href="/exhibits">exhibits</a></li>
+					<li><a href="/musings">musings</a></li>
+					<li><a href="/motivations">motivations</a></li>
+				</ul>
+			</nav>
+		</header>
+		<main class="mx-auto max-w-[72ch] px-4 sm:px-6 lg:px-8">
 			<slot />
 		</main>
+		<footer>
+			<nav aria-label="Footer">
+				<ul>
+					<li>
+						<a href="https:github.com/DashDownDotDev"
+							>github.com/DashDownDotDev</a
+						>
+					</li>
+				</ul>
+			</nav>
+		</footer>
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
