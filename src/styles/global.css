@@ -11,3 +11,25 @@
 		@apply text-neutral-200 antialiased;
 	}
 }
+
+@layer components {
+	.navlink {
+		@apply text-neutral-200/80 transition-colors hover:text-neutral-200;
+		@apply focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-black/20;
+	}
+}
+
+.navlink {
+	position: relative;
+}
+
+.navlink.text-neutral-200::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: -0.4rem;
+	height: 1px;
+	background: currentColor;
+	opacity: 0.4;
+}

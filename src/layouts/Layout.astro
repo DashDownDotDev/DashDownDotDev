@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import Backdrop from "~/components/Backdrop";
+import NavLink from "../components/NavLink.astro";
 ---
 
 <!doctype html>
@@ -14,29 +15,42 @@ import Backdrop from "~/components/Backdrop";
 	</head>
 	<body>
 		<Backdrop client:load />
-		<header>
-			<nav aria-label="Primary">
-				<ul>
-					<li><a href="/">home</a></li>
-					<li><a href="/exhibits">exhibits</a></li>
-					<li><a href="/musings">musings</a></li>
-					<li><a href="/motivations">motivations</a></li>
-				</ul>
-			</nav>
+		<header
+			class="sticky top-0 z-20 border-b border-white/10 bg-black/20 backdrop-blur"
+		>
+			<div class="mx-auto max-w-[72ch] px-4 sm:px-6 lg:px-8">
+				<nav aria-label="Primary" class="py-4">
+					<ul class="flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+						<NavLink href="/" exact>home</NavLink>
+						<NavLink href="/exhibits">exhibits</NavLink>
+						<NavLink href="/musings">musings</NavLink>
+						<NavLink href="/motivations">motivations</NavLink>
+					</ul>
+				</nav>
+			</div>
 		</header>
-		<main class="mx-auto max-w-[72ch] px-4 sm:px-6 lg:px-8">
+
+		<main class="mx-auto max-w-[72ch] px-4 py-10 sm:px-6 lg:px-8">
 			<slot />
 		</main>
-		<footer>
-			<nav aria-label="Footer">
-				<ul>
-					<li>
-						<a href="https:github.com/DashDownDotDev"
-							>github.com/DashDownDotDev</a
-						>
-					</li>
-				</ul>
-			</nav>
+
+		<footer class="mt-16 border-t border-white/10">
+			<div class="mx-auto max-w-[72ch] px-4 sm:px-6 lg:px-8">
+				<nav aria-label="Footer" class="py-8 text-sm">
+					<ul class="flex flex-wrap items-center gap-x-5 gap-y-2">
+						<li>
+							<a
+								class="navlink"
+								href="https://github.com/DashDownDotDev"
+								target="_blank"
+								rel="noreferrer"
+							>
+								github.com/DashDownDotDev
+							</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
 		</footer>
 	</body>
 </html>

@@ -1,0 +1,22 @@
+---
+export interface Props {
+	href: string;
+	exact?: boolean;
+}
+
+const { href, exact = false } = Astro.props;
+
+const path = Astro.url.pathname;
+
+const isActive = exact
+	? path === href
+	: href === "/"
+		? path === "/"
+		: path.startsWith(href);
+---
+
+<li>
+	<a href={href} class={`navlink ${isActive ? "text-neutral-200" : ""}`}>
+		<slot />
+	</a>
+</li>
