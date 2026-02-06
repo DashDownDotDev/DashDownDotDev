@@ -6,14 +6,15 @@
 		"dev": "astro dev",
 		"check": "astro check",
 		"build": "astro build",
+		"test": "vitest --run",
 		"preview": "astro preview",
-		"astro": "astro",
 		"sync": "astro sync",
 		"lint": "eslint",
 		"lint:fix": "eslint --fix",
 		"format": "pnpm run format:core --check",
 		"format:core": "prettier \"**/*.{js,jsx,ts,tsx,mjs,css,md,mdx,astro,json,yaml,yml}\"",
-		"format:fix": "pnpm run format:core --write"
+		"format:fix": "pnpm run format:core --write",
+		"deploy": "wrangler pages deploy"
 	},
 	"devDependencies": {
 		"@astrojs/check": "^0.9.6",
@@ -39,10 +40,13 @@
 		"react-dom": "^19.2.4",
 		"tailwindcss": "^4.1.18",
 		"typescript": "^5.9.3",
-		"typescript-eslint": "^8.54.0"
+		"typescript-eslint": "^8.54.0",
+		"vitest": "^4.0.18",
+		"wrangler": "^4.63.0"
 	},
 	"engines": {
 		"node": ">=25",
 		"pnpm": ">=10"
-	}
+	},
+	"packageManager": "pnpm@10.28.1"
 }
