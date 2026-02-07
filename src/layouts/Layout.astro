@@ -15,7 +15,7 @@ import { ClientRouter } from "astro:transitions";
 		<title>DashDown.dev</title>
 		<ClientRouter />
 	</head>
-	<body>
+	<body class="flex min-h-screen flex-col">
 		<Backdrop client:load transition:persist />
 		<header
 			class="sticky top-0 z-20 border-b border-white/10 bg-black/20 backdrop-blur"
@@ -32,7 +32,7 @@ import { ClientRouter } from "astro:transitions";
 			</div>
 		</header>
 
-		<main class="mx-auto max-w-[72ch] px-4 py-10 sm:px-6 lg:px-8">
+		<main class="mx-auto max-w-[72ch] flex-1 px-4 py-10 sm:px-6 lg:px-8 w-full">
 			<slot />
 		</main>
 
