@@ -7,6 +7,7 @@ type Particle = {
 	vx: number;
 	vy: number;
 	a: number;
+	isHaze?: boolean;
 };
 
 export default function Backdrop() {
@@ -30,14 +31,49 @@ export default function Backdrop() {
 		const bgBottom = "#05070c";
 		const particleColor = "255, 255, 255"; // keep white for now
 
-		const particles: Particle[] = Array.from({ length: 40 }, () => ({
+		// Regular particles
+		const particles: Particle[] = Array.from({ length: 200 }, () => ({
 			x: Math.random() * canvas.width,
 			y: Math.random() * canvas.height,
 			r: Math.random() * 2.2 + 0.8,
 			vx: (Math.random() - 0.5) * 0.1,
 			vy: (Math.random() - 0.5) * 0.1,
-			a: Math.random() * 0.25 + 0.12,
+			a: Math.random() * 0.18 + 0.08,
 		}));
+
+		// Create haze clouds using many small particles
+		const hazeParticles: Particle[] = [];
+		const cloudCount = 24;
+		const particlesPerCloud = 150;
+
+		for (let i = 0; i < cloudCount; i++) {
+			// Cloud center
+			const cx = Math.random() * canvas.width;
+			const cy = Math.random() * canvas.height;
+			const cloudRadius = Math.random() * 200 + 150;
+			const cloudVx = (Math.random() - 0.5) * 0.02;
+			const cloudVy = (Math.random() - 0.5) * 0.02;
+
+			// Generate particles around cloud center
+			for (let j = 0; j < particlesPerCloud; j++) {
+				const angle = Math.random() * Math.PI * 2;
+				const dist = Math.random() * cloudRadius;
+				const offsetX = Math.cos(angle) * dist;
+				const offsetY = Math.sin(angle) * dist;
+
+				hazeParticles.push({
+					x: cx + offsetX,
+					y: cy + offsetY,
+					r: Math.random() * 1.5 + 0.5,
+					vx: cloudVx + (Math.random() - 0.5) * 0.01,
+					vy: cloudVy + (Math.random() - 0.5) * 0.01,
+					a: Math.random() * 0.02 + 0.036,
+					isHaze: true,
+				});
+			}
+		}
+
+		const allParticles = [...hazeParticles, ...particles];
 
 		const drawBackground = () => {
 			const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
@@ -51,7 +87,7 @@ export default function Backdrop() {
 		const tick = () => {
 			drawBackground();
 
-			for (const p of particles) {
+			for (const p of allParticles) {
 				p.x += p.vx;
 				p.y += p.vy;
 
