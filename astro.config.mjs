@@ -8,6 +8,7 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
 	site: "https://dashdown.dev",
 	integrations: [react(), mdx()],
+	prefetch: true,
 
 	vite: {
 		plugins: [tailwindcss()],

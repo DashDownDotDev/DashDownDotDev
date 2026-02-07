@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Backdrop from "~/components/Backdrop";
 import NavLink from "../components/NavLink.astro";
+import { ClientRouter } from "astro:transitions";
 ---
 
 <!doctype html>
@@ -12,9 +13,10 @@ import NavLink from "../components/NavLink.astro";
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
 		<title>DashDown.dev</title>
+		<ClientRouter />
 	</head>
 	<body>
-		<Backdrop client:load />
+		<Backdrop client:load transition:persist />
 		<header
 			class="sticky top-0 z-20 border-b border-white/10 bg-black/20 backdrop-blur"
 		>
